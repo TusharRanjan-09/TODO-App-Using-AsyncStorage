@@ -16,7 +16,13 @@ export default class App extends Component {
     ],
     isLoading: false
   }
-
+  deleteItem=(id)=>{
+    var arr = this.state.item;
+    var pos = arr.indexOf(id);
+    arr.splice(pos,1);
+    this.setState({item:arr})
+    // this.setState({items:state.items.filter(i => i.id !== action.payload.id})
+  }
   storeData = async () => {
     this.arr.push({ id: this.id, data: this.state.text })
     this.id++;
@@ -40,7 +46,7 @@ export default class App extends Component {
         <View style={{marginVertical:20}}>
           {this.state.isLoading ?
             this.state.item.map(item => {
-              return <View style={{borderWidth:1,margin:5,flexDirection:'row',justifyContent:'space-between',alignItems:'center',width:330,padding:5,borderRadius:10, backgroundColor:'darkviolet'}} key={item.id}><Text style={{color:'white', fontSize:24}}>{item.data}</Text><TouchableOpacity><MaterialCommunityIcons name="delete-forever" size={38} color="white"/></TouchableOpacity></View>
+              return <View style={{borderWidth:1,margin:5,flexDirection:'row',justifyContent:'space-between',alignItems:'center',width:330,padding:5,borderRadius:10, backgroundColor:'darkviolet'}} key={item.id}><Text style={{color:'white', fontSize:24}}>{item.data}</Text><TouchableOpacity onPress={this.deleteItem}><MaterialCommunityIcons name="delete-forever" size={38} color="white"/></TouchableOpacity></View>
             })
             : <Text>No Item</Text>
           }
