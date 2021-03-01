@@ -8,6 +8,8 @@ export default function Input(props) {
             <TextInput placeholder="Enter The Task"
                 onChangeText={props.textt}
                 value={props.val}
+                placeholderTextColor="grey"
+                style={{fontSize:18}}
             />
         </View>
     );
@@ -19,7 +21,7 @@ const styles = StyleSheet.create({
         width: '80%',
         borderRadius: 30,
         justifyContent: 'center',
-        marginTop: 15
+        marginTop: 18
     },
     title: {
         color: 'white',
