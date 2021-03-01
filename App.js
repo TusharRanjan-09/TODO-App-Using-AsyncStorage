@@ -6,6 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Header from './src/components/Header';
 import Input from './src/components/TextInput';
 import Bttn from './src/components/Button';
+import LinearGradient from 'react-native-linear-gradient';
 export default class App extends Component {
   arr = []
   id = 0
@@ -44,9 +45,11 @@ export default class App extends Component {
         <ScrollView style={{ marginVertical: 20 }}>
           {this.state.isLoading ?
             this.state.item.map((item, index) => {
-              return <TouchableOpacity key={index} onPress={() => this.deleteItem(index)} style={styles.viw}  >
+              return <TouchableOpacity key={index} onPress={() => this.deleteItem(index)}   >
+                <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 1}} colors={['#9500ca', '#ff0894', '#ff4740']} style={styles.viw}>
                 <Text style={{ color: 'white', fontSize: 24 }}>{item.data}</Text>
                   <MaterialCommunityIcons name="delete-forever" size={38} color="white" />
+                </LinearGradient>
                 </TouchableOpacity>
             })
             : <Text style={{fontSize:18}}>No Item</Text>
