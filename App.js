@@ -46,7 +46,7 @@ export default class App extends Component {
           {this.state.isLoading ?
             this.state.item.map((item, index) => {
               return <TouchableOpacity key={index} onPress={() => this.deleteItem(index)}   >
-                <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 1}} colors={['#9500ca', '#ff0894', '#ff4740']} style={styles.viw}>
+                <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#f44042', '#f86726', '#f98f28']} style={styles.viw}>
                 <Text style={{ color: 'white', fontSize: 24 }}>{item.data}</Text>
                   <MaterialCommunityIcons name="delete-forever" size={38} color="white" />
                 </LinearGradient>

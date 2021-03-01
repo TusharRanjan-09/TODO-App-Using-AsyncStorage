@@ -8,7 +8,7 @@ export default function Button(props) {
             <TouchableOpacity style={{marginLeft:5}}
                 onPress={props.press}
             >
-                <Text style={{color:'darkviolet', fontSize:30, fontWeight:'bold'}}>ADD</Text>
+                <Text style={{color:'#f0373e', fontSize:30, fontWeight:'bold'}}>ADD</Text>
             </TouchableOpacity>
         </View>
     );

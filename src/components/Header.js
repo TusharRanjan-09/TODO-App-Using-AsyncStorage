@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 export default class Header extends Component {
     render() {
         return (
-<LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 1}} colors={['#9500ca', '#ff0894', '#ff4740']} style={styles.linearGradient}>
+<LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#f44042', '#f86726', '#f98f28']} style={styles.linearGradient}>
             <View style={{flexDirection:'row', justifyContent: 'space-between',width:'100%'}}>
                 <TouchableOpacity>
                 <AntDesign name="bars" size={38} color="white" style={{marginLeft:6}}/>
