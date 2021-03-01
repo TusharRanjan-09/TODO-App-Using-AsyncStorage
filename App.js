@@ -16,9 +16,9 @@ export default class App extends Component {
     ],
     isLoading: false
   }
-  deleteItem=(id)=>{
+  deleteItem=(index)=>{
     var arr = this.state.item;
-    var pos = arr.indexOf(id);
+    var pos = arr.indexOf(index);
     arr.splice(pos,1);
     this.setState({item:arr})
     // this.setState({items:state.items.filter(i => i.id !== action.payload.id})
@@ -45,8 +45,8 @@ export default class App extends Component {
         </View>
         <View style={{marginVertical:20}}>
           {this.state.isLoading ?
-            this.state.item.map(item => {
-              return <View style={{borderWidth:1,margin:5,flexDirection:'row',justifyContent:'space-between',alignItems:'center',width:330,padding:5,borderRadius:10, backgroundColor:'darkviolet'}} key={item.id}><Text style={{color:'white', fontSize:24}}>{item.data}</Text><TouchableOpacity onPress={this.deleteItem}><MaterialCommunityIcons name="delete-forever" size={38} color="white"/></TouchableOpacity></View>
+            this.state.item.map((item,index)=> {
+              return <View style={styles.viw} key={index}><Text style={{color:'white',fontSize:24}}>{item.data}</Text><TouchableOpacity onPress={()=>this.deleteItem(index)}><MaterialCommunityIcons name="delete-forever" size={38} color="white"/></TouchableOpacity></View>
             })
             : <Text>No Item</Text>
           }
@@ -62,5 +62,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     paddingTop: 22
+  },
+  viw: {
+    borderWidth:1,
+    margin:5,
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    width:330,
+    padding:5,
+    borderRadius:10, 
+    backgroundColor:'darkviolet'
   },
 });
