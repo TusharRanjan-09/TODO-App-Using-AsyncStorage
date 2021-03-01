@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity,ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Header from './src/components/Header';
@@ -41,7 +41,7 @@ export default class App extends Component {
           <Input textt={text => this.setState({ text })} val={this.state.text} />
           <Bttn press={this.storeData} />
         </View>
-        <View style={{ marginVertical: 20 }}>
+        <ScrollView style={{ marginVertical: 20 }}>
           {this.state.isLoading ?
             this.state.item.map((item, index) => {
               return <TouchableOpacity key={index} onPress={() => this.deleteItem(index)} style={styles.viw}  >
@@ -51,7 +51,7 @@ export default class App extends Component {
             })
             : <Text>No Item</Text>
           }
-        </View>
+        </ScrollView>
         <StatusBar style="auto" />
       </View>
     );
@@ -66,13 +66,14 @@ const styles = StyleSheet.create({
   },
   viw: {
     borderWidth: 1,
-    margin: 5,
+    margin: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: 330,
+    width: 345,
     padding: 5,
-    borderRadius: 10,
-    backgroundColor: 'darkviolet'
+    borderRadius: 5,
+    backgroundColor: 'darkviolet',
+    height:60
   },
 });
