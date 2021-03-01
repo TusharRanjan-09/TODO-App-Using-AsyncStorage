@@ -49,7 +49,7 @@ export default class App extends Component {
                   <MaterialCommunityIcons name="delete-forever" size={38} color="white" />
                 </TouchableOpacity>
             })
-            : <Text>No Item</Text>
+            : <Text style={{fontSize:18}}>No Item</Text>
           }
         </ScrollView>
         <StatusBar style="auto" />
