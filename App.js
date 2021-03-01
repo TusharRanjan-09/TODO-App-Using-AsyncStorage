@@ -16,12 +16,10 @@ export default class App extends Component {
     ],
     isLoading: false
   }
-  deleteItem=(index)=>{
-    var arr = this.state.item;
-    var pos = arr.indexOf(index);
-    arr.splice(pos,1);
-    this.setState({item:arr})
-    // this.setState({items:state.items.filter(i => i.id !== action.payload.id})
+  deleteItem = (index) => {
+    var arry = this.state.item;
+    arry.splice(index, 1);
+    this.setState({ item: arry })
   }
   storeData = async () => {
     this.arr.push({ id: this.id, data: this.state.text })
@@ -43,10 +41,13 @@ export default class App extends Component {
           <Input textt={text => this.setState({ text })} val={this.state.text} />
           <Bttn press={this.storeData} />
         </View>
-        <View style={{marginVertical:20}}>
+        <View style={{ marginVertical: 20 }}>
           {this.state.isLoading ?
-            this.state.item.map((item,index)=> {
-              return <View style={styles.viw} key={index}><Text style={{color:'white',fontSize:24}}>{item.data}</Text><TouchableOpacity onPress={()=>this.deleteItem(index)}><MaterialCommunityIcons name="delete-forever" size={38} color="white"/></TouchableOpacity></View>
+            this.state.item.map((item, index) => {
+              return <TouchableOpacity key={index} onPress={() => this.deleteItem(index)} style={styles.viw}  >
+                <Text style={{ color: 'white', fontSize: 24 }}>{item.data}</Text>
+                  <MaterialCommunityIcons name="delete-forever" size={38} color="white" />
+                </TouchableOpacity>
             })
             : <Text>No Item</Text>
           }
@@ -64,14 +65,14 @@ const styles = StyleSheet.create({
     paddingTop: 22
   },
   viw: {
-    borderWidth:1,
-    margin:5,
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
-    width:330,
-    padding:5,
-    borderRadius:10, 
-    backgroundColor:'darkviolet'
+    borderWidth: 1,
+    margin: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: 330,
+    padding: 5,
+    borderRadius: 10,
+    backgroundColor: 'darkviolet'
   },
 });
