@@ -7,9 +7,13 @@ export default class Header extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <TouchableOpacity>
                 <AntDesign name="bars" size={38} color="white" style={{marginLeft:6}}/>
+                </TouchableOpacity>
                 <Text style={styles.title}>TODO</Text>
+                <TouchableOpacity>
                 <MaterialCommunityIcons name="dots-vertical" size={38} color="white" />
+                </TouchableOpacity>        
             </View>
         );
     }
