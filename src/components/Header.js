@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         height: '7%',
         justifyContent: 'space-between',
         flexDirection: 'row',
-        borderRadius: 5
+      
       },
       buttonText: {
         fontSize: 18,
